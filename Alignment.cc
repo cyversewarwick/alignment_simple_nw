@@ -32,21 +32,21 @@ struct NWblock
   double NWmax;
 };
 
-unsigned int get_next_value(FILE *file) {
-  char nextcharacter[2];
-  unsigned int result;
+// unsigned int get_next_value(FILE *file) {
+//   char nextcharacter[2];
+//   unsigned int result;
 
-  nextcharacter[1] = 0;
-  nextcharacter[0] = getc(file);
-  result = atoi(nextcharacter);
-  nextcharacter[0] = getc(file);
-  while (nextcharacter[0] != '\t') {
-    result = 10*result;
-    result = result+atoi(nextcharacter);
-    nextcharacter[0] = getc(file);
-  }
-  return result;
-}
+//   nextcharacter[1] = 0;
+//   nextcharacter[0] = getc(file);
+//   result = atoi(nextcharacter);
+//   nextcharacter[0] = getc(file);
+//   while (nextcharacter[0] != '\t') {
+//     result = 10*result;
+//     result = result+atoi(nextcharacter);
+//     nextcharacter[0] = getc(file);
+//   }
+//   return result;
+// }
 
 
 int main(int argc, char* argv[]) {
@@ -97,7 +97,7 @@ int main(int argc, char* argv[]) {
   struct conservedregion *stackaddress;
   struct conservedregion* *pointers;
 
-   if (argc < 6 ) {
+   if (argc < 10 ) {
 	printf("Too few arguments\n");
 	exit(13);
  }
@@ -113,6 +113,10 @@ int main(int argc, char* argv[]) {
   const char *firstprofilefilename = argv[4];
   const char *secondprofilefilename = argv[5];
 
+  firststepwidth = atoi(argv[6]);
+  secondstepwidth = atoi(argv[7]);
+  windowlength = atoi(argv[8]);
+  cutoffthreshold = atof(argv[9]);
  
   // read input from files
   firstinputfile = fopen(firstsequencefile,"r");
@@ -123,14 +127,14 @@ int main(int argc, char* argv[]) {
   if (!secondinputfile) {
     exit(13);
   }
-  firststepwidth = get_next_value(firstinputfile);
-  secondstepwidth = get_next_value(firstinputfile);
-  windowlength = get_next_value(firstinputfile);
+  // firststepwidth = get_next_value(firstinputfile);
+  // secondstepwidth = get_next_value(firstinputfile);
+  // windowlength = get_next_value(firstinputfile);
   int windowlengthPlus1 = windowlength+1;
 
-  cutoffthreshold = (double) get_next_value(firstinputfile);
+  // cutoffthreshold = (double) get_next_value(firstinputfile);
   a = (char *) malloc(sizeof(char)*1000000);
-  fgets(a,1000000,firstinputfile); // rest of first line
+  // fgets(a,1000000,firstinputfile); // rest of first line
   fgets(a,1000000,firstinputfile);
   b = (char *) malloc(sizeof(char)*1000000);
   fgets(b,1000000,secondinputfile);
