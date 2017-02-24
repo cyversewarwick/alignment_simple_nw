@@ -497,7 +497,7 @@ int main(int argc, char* argv[]) {
 		  for (j=1;j<=(scorearray[i].numberregions);j++) {
 			  fprintf(outputfile,"%d\t",scorearray[i].firstconservedregion->startfirstspecies);
 			  fprintf(outputfile,"%d\t",scorearray[i].firstconservedregion->startsecondspecies);
-			  fprintf(outputfile,"%d\t",i);
+			  fprintf(outputfile,"%.1f\t",i/2.0+(float)windowlength/2.0);
 			  fprintf(outputfile,"\n");
 			  scorearray[i].firstconservedregion=scorearray[i].firstconservedregion->nextconservedregion;
 		  }//for j
@@ -506,10 +506,10 @@ int main(int argc, char* argv[]) {
 
   for (i=0;i<numberblocks1;i++) {
 //	  fprintf(outputfilefirstprofile,"%f\n",firstprofile[i]);
-	  fprintf(outputfilefirstprofile,"%f\n",firstprofile[i]);
+	  fprintf(outputfilefirstprofile,"%.1f\n",firstprofile[i]/2+(int)windowlength/2);
   }
   for (i=0;i<numberblocks2;i++) {
-	  fprintf(outputfilesecondprofile,"%f\n",secondprofile[i]);
+	  fprintf(outputfilesecondprofile,"%.1f\n",secondprofile[i]/2+(int)windowlength/2);
   }
   fclose(outputfile);
   fclose(outputfilefirstprofile);
