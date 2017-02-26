@@ -15,7 +15,7 @@ A simple C++ implementation of the Needleman-Wunsch algorithm.
  
 ## Example
 With input data from the `data` folder, run `./Alignment data/input1 data/input2 output1 output2 output3 1 1 100 0`.
-Check that the output files (`output1`, `output2` and `output3`) matches those in the `data` folder.
+Check that the output files (`output1`, `output2` and `output3`) match those in the `data` folder.
 
 ## Previous Version
 The four integer parameters were part of the first input file as shown in the `data_ott` folder
