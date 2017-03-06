@@ -501,7 +501,7 @@ int main(int argc, char* argv[]) {
 		  for (j=1;j<=(scorearray[i].numberregions);j++) {
 			  fprintf(outputfile,"%d\t",scorearray[i].firstconservedregion->startfirstspecies);
 			  fprintf(outputfile,"%d\t",scorearray[i].firstconservedregion->startsecondspecies);
-			  fprintf(outputfile,"%.1f\t",i/2.0+(float)windowlength/2.0);
+			  fprintf(outputfile,"%.1f",i/2.0+(float)windowlength/2.0);
 			  fprintf(outputfile,"\n");
 			  scorearray[i].firstconservedregion=scorearray[i].firstconservedregion->nextconservedregion;
 		  }//for j
